@@ -1,0 +1,50 @@
+import java.awt.*;
+import java.awt.event.*;
+public class colorButton extends Frame implements ActionListener
+{
+Button b1,b2,b3,ext;
+Label lbl;
+colorButton(){
+   b1 = new Button("Red");
+   b2 = new Button("Blue");
+   b3 = new Button("Green");
+   b1.setBounds(100,100,60,20);
+   b2.setBounds(170,100,60,20);
+   b3.setBounds(240,100,60,20);
+   add(b1);
+   add(b2);
+   add(b3);
+   ext = new Button("Exit");
+   lbl = new Label("click here to close");
+   setLayout(null);
+   lbl.setBounds(160,140,160,20);
+   ext.setBounds(200,180,60,20);
+   add(ext);
+   add(lbl);
+   ext.addActionListener(this);
+   b1.addActionListener(this);
+   b2.addActionListener(this);
+   b3.addActionListener(this);
+}
+public void actionPerformed(ActionEvent ae){
+   String s = ae.getActionCommand();
+   if(s.equals("Red")){
+	setBackground(Color.red);
+}
+   else if(s.equals("Blue")){
+	setBackground(Color.blue);
+}
+else if(s.equals("Green")){
+     setBackground(Color.green);
+}
+else if(s.equals("Exit")){
+    System.exit(0);
+}
+}
+public static void main(String args[]){
+colorButton ob = new colorButton();
+ob.setSize(400,300);
+ob.setTitle("Myframe");
+ob.setVisible(true);
+}
+}
